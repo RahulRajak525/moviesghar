@@ -8,9 +8,9 @@ class apiMoviesServices {
   getTrandingTrailer = async () => {
     try {
       const response = await axios.get(
-        "https://api.themoviedb.org/3/trending/movie/day?api_key=84dfffc3b37cb52533d1ab1bdab9d2ff"
+        "https://api.themoviedb.org/3/trending/movie/week?api_key=84dfffc3b37cb52533d1ab1bdab9d2ff"
       );
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -31,7 +31,7 @@ class apiMoviesServices {
       const response = await axios.get(
         "https://api.themoviedb.org/3/configuration/languages?api_key=84dfffc3b37cb52533d1ab1bdab9d2ff"
       );
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);

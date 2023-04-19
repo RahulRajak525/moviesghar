@@ -1,0 +1,17 @@
+.card {
+  height: 100px;
+  width: 100px;
+  background-color: grey;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 2px 1px 8px 2px white;
+  cursor: pointer;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+.card h4 {
+  color: white;
+}

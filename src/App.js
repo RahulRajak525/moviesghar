@@ -1,16 +1,16 @@
 import { useDispatch } from "react-redux";
 import "./App.css";
-import HeartWarming from "./Component/HeartWarming";
-import Languages from "./Component/Languages";
 import Navbar from "./Component/Navbar";
-import Trailers from "./Component/Trailers";
-import { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import {
   getHeartWarmingAction,
   getLanguageAction,
   getTrailersAction,
 } from "./Reducers/asyncReducer";
-
+const Trailers = React.lazy(() => import("./Component/Trailers"));
+const HeartWarming = React.lazy(() => import("./Component/HeartWarming"));
+const Languages = React.lazy(() => import("./Component/Languages"));
+const Infinitee = React.lazy(() => import("./Component/Infinite"));
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,11 +19,14 @@ function App() {
     dispatch(getLanguageAction());
   }, []);
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      <Trailers />
-      <HeartWarming />
-      <Languages />
+      <Suspense fallback={<h1>Loading..</h1>}>
+        <Trailers />
+        <HeartWarming />
+        <Languages />
+        <Infinitee />
+      </Suspense>
     </div>
   );
 }

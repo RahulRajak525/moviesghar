@@ -5,17 +5,17 @@ import Carousel from "react-multi-carousel";
 import HeartWarmingItems from "./HeartWarmingItems";
 const HeartWarming = () => {
   const HeartWarming = useSelector((state) => state.movies.HeartWarmingList);
-  const HeartWarmingTv = HeartWarming.map((item) => {
-    return <HeartWarmingItems poster_path={item.poster_path} />;
+  const HeartWarmingTv = HeartWarming.map((item, index) => {
+    return <HeartWarmingItems poster_path={item.poster_path} key={index} />;
   });
   return (
     <>
-      <h3 style={{ color: "white" }}>Heart Warming Originals</h3>
+      <h2 style={{ color: "white" }}>Heart Warming Originals</h2>
       <div>
         <Carousel
           additionalTransfrom={0}
           arrows
-          autoPlaySpeed={3000}
+          autoPlaySpeed={2000}
           centerMode={false}
           className=""
           containerClass="container"
@@ -34,7 +34,7 @@ const HeartWarming = () => {
           responsive={{
             desktop: {
               breakpoint: {
-                max: 3000,
+                max: 1920,
                 min: 1024,
               },
               items: 8.5,
@@ -44,14 +44,14 @@ const HeartWarming = () => {
                 max: 464,
                 min: 0,
               },
-              items: 1,
+              items: 2,
             },
             tablet: {
               breakpoint: {
                 max: 1024,
                 min: 464,
               },
-              items: 1,
+              items: 4,
             },
           }}
           rewind={false}
@@ -64,7 +64,7 @@ const HeartWarming = () => {
           swipeable
         >
           {HeartWarmingTv}
-        </Carousel>{" "}
+        </Carousel>
       </div>
     </>
   );

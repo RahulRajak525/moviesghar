@@ -6,8 +6,8 @@ import Carousel from "react-multi-carousel";
 
 const Languages = () => {
   const LanguageListt = useSelector((state) => state.movies.LanguagesList);
-  const language = LanguageListt.map((item) => {
-    return <LanguageItems path={item.english_name} />;
+  const language = LanguageListt.map((item, index) => {
+    return <LanguageItems language={item.english_name} key={index} />;
   });
   return (
     <div>
@@ -44,14 +44,14 @@ const Languages = () => {
               max: 464,
               min: 0,
             },
-            items: 1,
+            items: 3,
           },
           tablet: {
             breakpoint: {
               max: 1024,
               min: 464,
             },
-            items: 1,
+            items: 5,
           },
         }}
         rewind={false}
